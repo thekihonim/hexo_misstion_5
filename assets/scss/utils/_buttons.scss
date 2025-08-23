@@ -1,0 +1,100 @@
+/* utils/_buttons.scss */
+/* 基底：所有按鈕共用 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  gap: 4px;                /* icon 與文字間距 */
+
+  /* ───────────── md（預設深色→hover/active 變綠）───────────── */
+  &-md {
+    padding: 12px 12px 12px 20px; /* 上右下左 */
+    gap: 4px;
+
+    --bs-btn-color:            #{$light};       /* 白字 */
+    --bs-btn-bg:               #{$dark};        /* 深底 */
+    --bs-btn-border-color:     #{$dark};
+
+    --bs-btn-hover-color: #{$dark};
+    --bs-btn-hover-bg: #{$secondary};
+    --bs-btn-hover-border-color: #{$secondary};
+
+    --bs-btn-active-color: #{$dark};
+    --bs-btn-active-bg: #{$secondary};
+    --bs-btn-active-border-color: #{$secondary};
+  }
+
+  /* ───────────── md-outline（灰系 outline → hover/active 灰底）───────────── */
+  &-md-outline {
+    padding: 12px 12px 12px 20px;
+    gap: 4px;
+
+    --bs-btn-bg:               transparent;
+    --bs-btn-color:            #{$dark}; 
+    --bs-btn-border-color:     #{$natural-85};
+
+    --bs-btn-hover-color:        #{$dark};
+    --bs-btn-hover-bg:           #{$natural-90};  /* #E0E5EB */
+    --bs-btn-hover-border-color: #{$natural-85};
+
+    --bs-btn-active-color:        #{$dark};
+    --bs-btn-active-bg:           #{$natural-90};
+    --bs-btn-active-border-color: #{$natural-85};
+  }
+
+  /* ───────────── lg───────────── */
+  &-lg {
+    padding: 16px 12px 16px 20px;
+    font-size: 24px;
+    line-height: 1.25;
+
+    /* default = 綠 */
+    --bs-btn-color:            #{$natural-10};   /* 文字：深色 */
+    --bs-btn-bg:               #{$secondary-50}; /* 綠底 */
+    --bs-btn-border-color:     #{$secondary-50};
+
+    /* hover/active = 藍 */
+    --bs-btn-hover-color:        #{$white};
+    --bs-btn-hover-bg:           #{$primary-60};
+    --bs-btn-hover-border-color: #{$primary-60};
+
+    --bs-btn-active-color:        #{$white};
+    --bs-btn-active-bg:           #{$primary-60};
+    --bs-btn-active-border-color: #{$primary-60};
+
+    @media (max-width: 767.98px) {
+    font-size: 1.25rem; // 20px 手機版
+  }
+  }
+
+  /* ───────────── icon-only（44x44，灰系）───────────── */
+  &-icon {
+    width: 44px; height: 44px;
+    padding: 0px;
+    justify-content: center;
+
+    --bs-btn-bg:               transparent;
+    --bs-btn-color:            #{$natural-10};
+
+    --bs-btn-hover-bg:           #{$natural-90};
+    --bs-btn-active-bg:          #{$natural-90};
+  }
+
+  /* ───────────── sm-outline（小尺寸灰系 outline）───────────── */
+  &-sm {
+    padding: 4px 4px 4px 8px;
+    font-size: .875rem; /* 14px */
+  }
+  &-sm-outline {
+    @extend .btn-sm;
+    --bs-btn-bg:               transparent;
+    --bs-btn-color:            #{$natural-50};
+    --bs-btn-border-color:     #{$natural-85};
+
+    --bs-btn-hover-color:        #{$natural-50};
+    --bs-btn-hover-bg:           #{$natural-90};
+
+    --bs-btn-active-color:        #{$natural-50};
+    --bs-btn-active-bg:           #{$natural-90};
+  }
+}

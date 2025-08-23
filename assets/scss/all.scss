@@ -2,6 +2,12 @@
 @import './utils/variables';
 @import "../../node_modules/bootstrap";
 
+
+@import "./utils/utilities";
+@import "bootstrap/scss/utilities/api";
+@import "./utils/buttons";
+@import "./utils/typography";
+
 @import "./base/base";
 
 @import './layout/header.scss';
@@ -9,3 +15,8 @@
 
 @import './pages/index.scss';
 @import './pages/user.scss';
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+

@@ -1,3 +1,33 @@
-.index-title {
-  font-size: 100px;
+.hero {
+  position: relative;
+  overflow: hidden; // ⭐ 超出的漸層球部分會被裁掉
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 40px;     // 與 nav 距離固定 40px
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: url("/assets/images/index/gradient-ball.png") no-repeat center / contain;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1; // 文字浮在球上面
+  }
+}
+
+.mySwiper .swiper-wrapper { align-items: stretch; }
+.mySwiper .swiper-slide { display: block; height: auto; }
+.mySwiper .swiper-slide > .card { height: 100%; display: flex; flex-direction: column; }
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
 }
