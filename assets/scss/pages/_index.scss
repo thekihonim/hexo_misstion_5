@@ -21,9 +21,46 @@
   }
 }
 
+
+
 .mySwiper .swiper-wrapper { align-items: stretch; }
 .mySwiper .swiper-slide { display: block; height: auto; }
 .mySwiper .swiper-slide > .card { height: 100%; display: flex; flex-direction: column; }
+
+.stories {
+position: relative;
+  &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background-color: #F0F3F5;
+      z-index: -1;
+  }
+
+  .swiper {
+    padding-bottom: 20px;
+  }
+
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    // 讓描述文字區塊可以自動填滿空間
+    .card-text {
+      flex-grow: 1;
+    }
+  }
+}
 
 .swiper-slide img {
   display: block;
@@ -31,3 +68,176 @@
   height: 500px;
   object-fit: cover;
 }
+
+
+
+/* 在桌面版，讓 Swiper 的父層 col 移除左邊距，並與左側內容區塊對齊 */
+@media (min-width: 992px) {
+  .stories .col-lg-8, .stories .container {
+    padding-right: 0; // 只影響 stories 區塊
+  }
+  .stories .mySwiper {
+    width: calc(100% + 200px); // 增加寬度使最後一張超出
+  }
+
+  .stories .row {
+    margin-right: calc(-50vw + 50% + 24px); // 手機版保留間距
+    
+    @media (min-width: 992px) {
+      margin-right: calc(-50vw + 50%); // 桌面版完全貼齊
+    }
+  }
+
+  .swiper {
+    padding-bottom: 20px;
+  }
+}
+
+/* 出血工具 */
+.bleed-end {
+  margin-right: calc(-50vw + 50% + 24px);
+}
+
+/* 桌面版出血工具，讓它貼齊右側邊緣 */
+@media (min-width: 992px) {
+  .bleed-end {
+    margin-right: calc(-50vw + 50%);
+  }
+}
+
+.WorkWay {
+  overflow: hidden;
+  position: relative;
+
+  .adv-vector {
+    right: 0;        /* 緊貼 .row 的右邊 */
+    top: -174px;     /* 往上超出 .row 174px */
+    width: 196px;
+    height: 196px;
+    // z-index: 1;
+  }
+
+  // 「為什麼？」對話框
+  .index-whychoose__tooltip {
+    position: relative;
+    display: inline-block;
+    border-radius: 16px;
+    border: solid 2px #4a69e8;
+
+    &__text {
+      position: relative;
+      background-color: #fcfcfd;
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-size: 20px;
+      display: block;
+      z-index: 3;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform: rotate(45deg);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 24px 24px;
+      border-color: transparent transparent #fcfcfd;
+      z-index: 2;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -9px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform: rotate(45deg);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 28px 28px;
+      border-color: transparent transparent #4a69e8;
+      z-index: 1;
+    }
+  }
+
+  
+}
+
+
+/* hover 遮罩 */
+.hover-opacity {
+  position: absolute;  /* 確保覆蓋在圖片上 */
+  inset: 0;            /* 填滿整個卡片 */
+  background: #141A1F80; /* 半透明黑色 */
+  color: #fff;           /* 白字 */
+  display: flex;         /* 置中文字 */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+
+  opacity: 0;
+  transition: opacity .3s ease;
+  z-index: 1;            /* 避免被圖片蓋掉 */
+}
+.card:hover .hover-opacity {
+  opacity: 1;
+}
+
+/* 左下角角標形狀 */
+.only-rt-radius {
+  border-radius: 0 12px 0 0;
+  z-index: 2;             /* 保證在遮罩上層 */
+  position: relative;     /* 讓 z-index 生效 */
+}
+
+.with-line {
+  display: flex;
+  align-items: center;
+}
+
+.with-line::after {
+  content: "";
+  flex: 1;                /* 自動佔滿剩餘空間 */
+  height: 1px;            /* 線條粗細 */
+  background:  #D1D9E1; /* 線條顏色 */
+  margin-left: 24px;      /* 與文字間距 */
+}
+
+.partners-bg-img {
+  background: url("/assets/images/index/gradient-ball.png") no-repeat center / cover;
+  
+  // 手機版設定（預設）
+  background-size: 400px 400px;
+  background-position: calc(100% + 100px) calc(100% + 100px);
+  
+  // 桌機版設定（lg 以上）
+  @media (min-width: 992px) {
+    background-size: 800px 800px;
+    background-position: calc(100% + 200px) calc(100% + 200px);
+  }
+}
+
+.step-label {
+  background-color: #F0F3F5;
+  border-radius: 12px 0 12px 0;
+}
+
+.service-img {
+  width: 160px;
+  height: 160px;
+  margin-top: 64px;
+}
+
+// .service {
+//   .card {
+//     width: 306px;
+//   }
+// }
