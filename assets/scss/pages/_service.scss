@@ -1,0 +1,66 @@
+.banner-bg {
+  background-image: url(/assets/images/service/banner-bg-pc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; // 修正：cover 不是 coveraut
+  
+  @media screen and (max-width: 991.98px) { // 修正：加上 and，括號位置
+    background-image: url(/assets/images/service/banner-bg.png);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 50%;
+  }
+}
+
+.translate-middle {
+    transform: translate(- 50%, - 50%)
+}
+
+.top-120 {
+  top: 120%;
+}
+
+.start-100 {
+    left: 100%;
+}
+
+.hot-badge {
+  top: -1px;
+  left: -1px;
+  border-radius: 12px 0 12px 0;
+}
+
+.card-img {
+  max-height: 200px;
+}
+
+.support-plan-card {
+  background-image: url(/assets/images/service/subscribe-3.svg);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.custom-bg-xl {
+  height: 300px;
+}
+
+.support-card-negative {
+  margin-top: -50px; // 減少負邊距，讓推擠效果更明顯
+  z-index: 10;
+  position: relative;
+  
+  // 桌機版可以有更大的負邊距
+  @media (min-width: 992px) {
+    margin-top: -80px;
+  }
+}
+
+.support-bottom-bg {
+  margin-top: -50px; // 對應調整
+  padding-top: 100px; // 減少padding，讓推擠更自然
+  
+  @media (min-width: 992px) {
+    margin-top: -80px;
+    padding-top: 130px;
+  }
+}

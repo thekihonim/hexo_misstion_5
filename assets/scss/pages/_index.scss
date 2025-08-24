@@ -105,19 +105,7 @@ position: relative;
   }
 }
 
-.WorkWay {
-  overflow: hidden;
-  position: relative;
-
-  .adv-vector {
-    right: 0;        /* 緊貼 .row 的右邊 */
-    top: -174px;     /* 往上超出 .row 174px */
-    width: 196px;
-    height: 196px;
-    // z-index: 1;
-  }
-
-  // 「為什麼？」對話框
+// 對話框
   .index-whychoose__tooltip {
     position: relative;
     display: inline-block;
@@ -167,9 +155,19 @@ position: relative;
     }
   }
 
+.WorkWay {
+  overflow: hidden;
+  position: relative;
+
+  .adv-vector {
+    right: 0;        /* 緊貼 .row 的右邊 */
+    top: -174px;     /* 往上超出 .row 174px */
+    width: 196px;
+    height: 196px;
+    // z-index: 1;
+  }
   
 }
-
 
 /* hover 遮罩 */
 .hover-opacity {
@@ -190,6 +188,7 @@ position: relative;
 .card:hover .hover-opacity {
   opacity: 1;
 }
+
 
 /* 左下角角標形狀 */
 .only-rt-radius {
@@ -236,8 +235,37 @@ position: relative;
   margin-top: 64px;
 }
 
-// .service {
-//   .card {
-//     width: 306px;
-//   }
-// }
+.bg-grid {
+  background-image: url(/assets/images/index/bg-grid.png);
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.accordion-collapse.show::before {
+  content: '';
+  display: block;
+  border-top: 1px dashed #D1D9E1;
+  margin: 0 24px; // 對應你的 mx-5 設定
+}
+
+.accordion-button::after {
+  display: none; // 隱藏預設箭頭
+}
+
+.accordion-icon {
+  color: #141A1F;
+  transition: all 0.2s ease;
+}
+
+.accordion-button:not(.collapsed) .accordion-icon {
+  color: var(--bs-primary);
+  transform: rotate(- 90deg); // 從左轉成下
+}
+
+.card-rounded {
+  border-radius: 24px;
+
+  @media screen {
+    border-radius: 16px;
+  }
+}
