@@ -50,3 +50,4 @@ const swiper = new Swiper('.mySwiper', {
   },
 });
 
+AOS.init();
